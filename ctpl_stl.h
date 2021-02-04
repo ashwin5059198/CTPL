@@ -273,8 +273,8 @@ private:
     std::vector<std::unique_ptr<std::thread>> threads;
     std::vector<std::shared_ptr<std::atomic<bool>>> flags;
     detail::Queue<std::function<void(int id)> *> q;
-    std::atomic<bool> isDone;
-    std::atomic<bool> isStop;
+    std::atomic<bool> isDone;  // task completed
+    std::atomic<bool> isStop;  // received request to stop
     std::atomic<int> nWaiting; // how many threads are waiting
 
     std::mutex mutex;
